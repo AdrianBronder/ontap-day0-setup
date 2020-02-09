@@ -1,0 +1,375 @@
+{
+	"clusters": [
+		{
+			"cluster-name": "ontapcluster01",
+			"ip": "10.10.10.235",
+			"user": "admin",
+			"password": "password",
+			"timezone": "Europe/Berlin",
+			"contact": "netappadmin@domain.com",
+			"location": "RACK 01",
+			"remote-cluster": "",
+			"http-enabled": "true",
+			"net-dns": {
+				"domains": {
+					"string": [
+						"lab.test.local"
+					]
+				},
+				"name-servers": {
+					"ip-address": [
+						"10.10.11.5",
+						"10.10.11.6"
+					]
+				}
+			},
+			"ntp-servers": [
+				{
+					"server-name": "10.10.11.5",
+					"version": "auto",
+					"is-preferred": "true"
+				}
+			],
+			"options": {
+				"cdpd.enable": "on"
+			},
+			"net-options": {
+				"ipv6-options-info": {
+					"enabled": "true"
+				}
+			},
+			"net-ipspaces" : [
+				{
+					"ipspace": "InterclusterIP"
+				}
+			],
+			"net-port-broadcast-domains": [
+				{
+					"broadcast-domain": "UntaggedBasePort",
+					"mtu": "9000",
+					"ipspace": "Default"
+				},
+				{
+					"broadcast-domain": "DATA-10G",
+					"mtu": "9000",
+					"ipspace": "Default"
+				},
+				{
+					"broadcast-domain": "Cluster-MGMT",
+					"mtu": "1500",
+					"ipspace": "Default"
+				},
+				{
+					"broadcast-domain": "SVM-MGMT",
+					"mtu": "1500",
+					"ipspace": "Default"
+				},
+				{
+					"broadcast-domain": "InterclusterBD",
+					"mtu": "9000",
+					"ipspace": "InterclusterIP"
+				}
+			],
+			"net-subnets": [
+				{
+					"subnet-name": "DATA-10G",
+					"ipspace": "Default",
+					"broadcast-domain": "DATA-10G",
+					"subnet": "192.168.0.0/16",
+					"ip-ranges": {
+						"ip-range": [
+							"192.168.100.0-192.168.100.254"
+						]
+					}
+				}
+			],
+			"licenses": {
+				"prot01": "licnesecode01",
+				"prot02": "licnesecode02",
+				"prot03": "licnesecode03",
+				"prot04": "licnesecode04",
+				"prot05": "licnesecode05",
+				"prot06": "licnesecode06",
+				"prot07": "licnesecode07",
+				"prot08": "licnesecode08",
+				"prot09": "licnesecode09",
+				"prot10": "licnesecode10"
+			},
+			"net-interfaces": [
+				{
+					"interface-name": "cluster_mgmt",
+					"role": "cluster-mgmt",
+					"home-node": "ontapcluster01-01",
+					"home-port": "e0M",
+					"address": "10.10.10.235",
+					"netmask": "255.255.255.0"
+				},
+				{
+					"vserver": "InterclusterIP",
+					"interface-name": "ic_ontapcluster01-01_lif1",
+					"role": "intercluster",
+					"home-node": "ontapcluster01-01",
+					"home-port": "e0e-999",
+					"address": "172.16.0.236",
+					"netmask": "255.255.0.0"
+				},
+				{
+					"vserver": "InterclusterIP",
+					"interface-name": "ic_ontapcluster01-02_lif1",
+					"role": "intercluster",
+					"home-node": "ontapcluster01-02",
+					"home-port": "e0e-999",
+					"address": "172.16.0.237",
+					"netmask": "255.255.0.0"
+				}
+			],
+			"net-routes": [
+				{
+					"destination": "0.0.0.0/0",
+					"gateway": "10.10.10.1"
+				}
+			],
+			"cluster-peers": [
+			],
+			"autosupport": {
+				"is-enabled": "false"
+			},
+			"storage-switches": [
+			],
+			"cluster-nodes": [
+				{
+					"node-name": "ontapcluster01-01",
+					"user": "admin",
+					"password": "password",
+					"ip": "10.10.10.236",
+					"sp-ip": "10.10.10.238",
+					"net-ports": [
+						{
+							"port": "e0e",
+							"mtu": "9000",
+							"is-administrative-auto-negotiate": "false",
+							"administrative-duplex": "full",
+							"administrative-speed": "10000",
+							"administrative-flowcontrol": "full",
+							"is-administrative-up": "true",
+							"ipspace": "Default",
+							"role": "data",
+							"broadcast-domain": "UntaggedBasePort"
+						},
+						{
+							"port": "e0e-50",
+							"mtu": "1500",
+							"ipspace": "Default",
+							"broadcast-domain": "SVM-MGMT"
+						},
+						{
+							"port": "e0e-51",
+							"mtu": "1500",
+							"ipspace": "Default",
+							"broadcast-domain": "Cluster-MGMT"
+						},
+						{
+							"port": "e0e-192",
+							"mtu": "1500",
+							"ipspace": "Default",
+							"broadcast-domain": "DATA-10G"
+						},
+						{
+							"port": "e0e-999",
+							"mtu": "9000",
+							"ipspace": "InterclusterIP",
+							"broadcast-domain": "InterclusterBD"
+						},
+						{
+							"port": "e0f",
+							"mtu": "9000",
+							"is-administrative-auto-negotiate": "false",
+							"administrative-duplex": "full",
+							"administrative-speed": "10000",
+							"administrative-flowcontrol": "full",
+							"is-administrative-up": "true",
+							"ipspace": "Default",
+							"role": "data",
+							"broadcast-domain": "UntaggedBasePort"
+						},
+						{
+							"port": "e0f-50",
+							"mtu": "1500",
+							"ipspace": "Default",
+							"broadcast-domain": "SVM-MGMT"
+						},
+						{
+							"port": "e0f-51",
+							"mtu": "1500",
+							"ipspace": "Default",
+							"broadcast-domain": "Cluster-MGMT"
+						},
+						{
+							"port": "e0f-192",
+							"mtu": "1500",
+							"ipspace": "Default",
+							"broadcast-domain": "DATA-10G"
+						},
+						{
+							"port": "e0f-999",
+							"mtu": "9000",
+							"ipspace": "InterclusterIP",
+							"broadcast-domain": "InterclusterBD"
+						},
+						{
+							"port": "e0c",
+							"mtu": "9000",
+							"is-administrative-auto-negotiate": "false",
+							"administrative-duplex": "full",
+							"administrative-speed": "10000",
+							"administrative-flowcontrol": "none",
+							"is-administrative-up": "true",
+							"ipspace": "Cluster",
+							"role": "cluster",
+							"broadcast-domain": "Cluster"
+						},
+						{
+							"port": "e0d",
+							"mtu": "9000",
+							"is-administrative-auto-negotiate": "false",
+							"administrative-duplex": "full",
+							"administrative-speed": "10000",
+							"administrative-flowcontrol": "none",
+							"is-administrative-up": "true",
+							"ipspace": "Cluster",
+							"role": "cluster",
+							"broadcast-domain": "Cluster"
+						}
+					],
+					"aggregates": [
+						{
+							"aggregate": "aggr1_ontapcluster01_01",
+							"nodes": {
+								"node-name": [""]
+							},
+							"disk-count": 9,
+							"raid-size": 18,
+							"raid-type": "raid_dp"
+						}
+					]
+				},
+				{
+					"node-name": "ontapcluster01-02",
+					"user": "admin",
+					"password": "password",
+					"ip": "10.10.10.237",
+					"sp-ip": "10.10.10.239",
+					"net-ports": [
+						{
+							"port": "e0e",
+							"mtu": "9000",
+							"is-administrative-auto-negotiate": "false",
+							"administrative-duplex": "full",
+							"administrative-speed": "10000",
+							"administrative-flowcontrol": "full",
+							"is-administrative-up": "true",
+							"ipspace": "Default",
+							"role": "data",
+							"broadcast-domain": "UntaggedBasePort"
+						},
+						{
+							"port": "e0e-50",
+							"mtu": "1500",
+							"ipspace": "Default",
+							"broadcast-domain": "SVM-MGMT"
+						},
+						{
+							"port": "e0e-51",
+							"mtu": "1500",
+							"ipspace": "Default",
+							"broadcast-domain": "Cluster-MGMT"
+						},
+						{
+							"port": "e0e-192",
+							"mtu": "1500",
+							"ipspace": "Default",
+							"broadcast-domain": "DATA-10G"
+						},
+						{
+							"port": "e0e-999",
+							"mtu": "9000",
+							"ipspace": "InterclusterIP",
+							"broadcast-domain": "InterclusterBD"
+						},
+						{
+							"port": "e0f",
+							"mtu": "9000",
+							"is-administrative-auto-negotiate": "false",
+							"administrative-duplex": "full",
+							"administrative-speed": "10000",
+							"administrative-flowcontrol": "full",
+							"is-administrative-up": "true",
+							"ipspace": "Default",
+							"role": "data",
+							"broadcast-domain": "UntaggedBasePort"
+						},
+						{
+							"port": "e0f-50",
+							"mtu": "1500",
+							"ipspace": "Default",
+							"broadcast-domain": "SVM-MGMT"
+						},
+						{
+							"port": "e0f-51",
+							"mtu": "1500",
+							"ipspace": "Default",
+							"broadcast-domain": "Cluster-MGMT"
+						},
+						{
+							"port": "e0f-192",
+							"mtu": "1500",
+							"ipspace": "Default",
+							"broadcast-domain": "DATA-10G"
+						},
+						{
+							"port": "e0f-999",
+							"mtu": "9000",
+							"ipspace": "InterclusterIP",
+							"broadcast-domain": "InterclusterBD"
+						},
+						{
+							"port": "e0c",
+							"mtu": "9000",
+							"is-administrative-auto-negotiate": "false",
+							"administrative-duplex": "full",
+							"administrative-speed": "10000",
+							"administrative-flowcontrol": "none",
+							"is-administrative-up": "true",
+							"ipspace": "Cluster",
+							"role": "cluster",
+							"broadcast-domain": "Cluster"
+						},
+						{
+							"port": "e0d",
+							"mtu": "9000",
+							"is-administrative-auto-negotiate": "false",
+							"administrative-duplex": "full",
+							"administrative-speed": "10000",
+							"administrative-flowcontrol": "none",
+							"is-administrative-up": "true",
+							"ipspace": "Cluster",
+							"role": "cluster",
+							"broadcast-domain": "Cluster"
+						}
+					],
+					"aggregates": [
+						{
+							"aggregate": "aggr1_ontapcluster01_02",
+							"nodes": {
+								"node-name": [""]
+							},
+							"disk-count": 9,
+							"raid-size": 18,
+							"raid-type": "raid_dp"
+						}
+					]
+				}
+			]
+		}
+	]
+}
