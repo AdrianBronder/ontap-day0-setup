@@ -16,4 +16,8 @@ I am using a config JSON that is processed by three seperate scripts:
 - Creates a cluster and joins nodes
 - Performs a couple of steps like setting parameters, creating networks & aggregates, adding licenses...
 
+General:
+- All possible steps run in parallel
+- It was my first Python learning experience. Please don't be to harsh on me ;-)
+
 Have fun!
