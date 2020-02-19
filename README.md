@@ -1,7 +1,13 @@
+ONTAP Day0 Setup
+================
+
+[![license](https://img.shields.io/github/license/netapp/trident.svg)](LICENSE)
+
 Repository for making my first steps on GitHub.
 <br/><br/>
 
 Sharing some ideas on how to automate FAS/AFF Day0 deployment steps (initialize, node setup, cluster setup). The scripts require access to the service processor of each node.
+
 I am using a config JSON that is processed by three seperate scripts:
 <br/><br/>
 
@@ -19,6 +25,8 @@ I am using a config JSON that is processed by three seperate scripts:
 - Creates a cluster and joins nodes
 - Performs a couple of steps like setting parameters, creating networks & aggregates, adding licenses...
 - Uses native ONTAP APIs (ZAPIs)
+- This script can be actually replaced by e.g. Ansible playbooks
+--- See:
 <br/><br/>
 
 **General**
